@@ -185,13 +185,13 @@
 
 				/* SEC_BATTERY_FULL_CONDITION_NOTIMEFULL | SEC_BATTERY_FULL_CONDITION_VCELL */
 				battery,full_condition_type = <9>;
-				battery,full_condition_soc = <93>;
-				battery,full_condition_vcell = <4330>;
+				battery,full_condition_soc = <98>;
+				battery,full_condition_vcell = <4420>;
 
 				battery,recharge_check_count = <1>;
 				battery,recharge_condition_type = <4>; /* SEC_BATTERY_RECHARGE_CONDITION_VCELL */
-				battery,recharge_condition_soc = <98>;
-				battery,recharge_condition_vcell = <4310>;
+				battery,recharge_condition_soc = <95>;
+				battery,recharge_condition_vcell = <4300>;
 
 				battery,charging_total_time = <14400>;
 				battery,hv_charging_total_time = <10800>;
@@ -264,20 +264,20 @@
 				battery,pd_charging_charge_power = <15000>;
 				battery,max_charging_current = <3150>;
 				battery,max_charging_charge_power = <25000>; /* 25W */
-				battery,battery_full_capacity = <4000>;
+				battery,battery_full_capacity = <8120>;
 
 				/* cycle, chg_float_voltage, recharge_condition_vcell, full_condition_vcell, full_condition_soc */
-				battery,age_data = <0 4380 4310 4330 93
-						300 4360 4290 4310 92
-						400 4340 4270 4290 91
-						700 4320 4250 4270 90
-						1000 4270 4200 4220 89>;
+				battery,age_data = <0 4420 4300 4420 98
+						300 4420 4300 4420 98
+						400 4420 4300 4420 98
+						700 4420 4300 4420 98
+						1000 4420 4300 4420 98>;
 
 				battery,health_condition = <
 					/* CYCLE ASOC */
 					900 75	/* GOOD */
-					1200 65 /* NORMAL */
-					1500 55 /* AGED */
+					1200 65 /* GOOD */
+					1500 55 /* GOOD */
 					>;
 
 				/* step charging option */
@@ -285,15 +285,15 @@
 
 				/* direct step charging option */
 				battery,dc_step_chg_type = <0x6B>; /* origin(0x6B), soc option is temporary removed */
-				battery,dc_step_chg_charge_power = <22000>;
-				battery,dc_step_chg_step = <3>;
+				battery,dc_step_chg_charge_power = <25000>;
+				battery,dc_step_chg_step = <2>;
 				battery,dc_step_chg_step_2nd = <0>;
-				battery,dc_step_chg_cond_vol = <4090 4190 4380>; /*<25w 3step> STEP_CHARGING_CONDITION_VOLTAGE */ 
-				battery,dc_step_chg_cond_iin = <1950 1550 0>; /* <25w 3step> STEP_CHARGING_CONDITION_INPUT_CURRENT */
+				battery,dc_step_chg_cond_vol = <4200 4400>; /*<25w 3step> STEP_CHARGING_CONDITION_VOLTAGE */ 
+				battery,dc_step_chg_cond_iin = <2800 2000 0>; /* <25w 3step> STEP_CHARGING_CONDITION_INPUT_CURRENT */
 				battery,dc_step_chg_iin_check_cnt = <3>;
-				battery,dc_step_chg_cond_soc = <30 65 100 30 65 100 30 65 100 30 65 100 30 65 100>; /* <25w 3step> STEP_CHARGING_CONDITION_SOC */
-				battery,dc_step_chg_val_vfloat = <4130 4310 4380>; /* <25w 3step> STEP_CHARGING_CONDITION_FLOAT_VOLTAGE */
-				battery,dc_step_chg_val_iout = <5100 3900 3100>; /* <25w 3step> */
+				battery,dc_step_chg_cond_soc = <90 98 100 90 98 100 90 98 100 90 98 100 90 98 100>; /* <25w 3step> STEP_CHARGING_CONDITION_SOC */
+				battery,dc_step_chg_val_vfloat = <4400 4450>; /* <25w 3step> STEP_CHARGING_CONDITION_FLOAT_VOLTAGE */
+				battery,dc_step_chg_val_iout = <6000 4000>; /* <25w 3step> */
 
 				battery,pre_afc_input_current = <500>; /* mA */
 				battery,prepare_ta_delay = <0>; /* msec */
@@ -338,8 +338,8 @@
 				fuelgauge,fuel_alert_soc = <1>;
 				fuelgauge,jig_gpio = <&gpm23 0 0>;
 				fuelgauge,jig_low_active;
-				fuelgauge,capacity_max = <1000>;
-				fuelgauge,capacity_max_margin = <300>;
+				fuelgauge,capacity_max = <8120>;
+				fuelgauge,capacity_max_margin = <500>;
 				fuelgauge,capacity_min = <0>;
 				fuelgauge,capacity_calculation_type = <0x5C>;
 				fuelgauge,repeated_fuelalert;
@@ -354,9 +354,9 @@
 				fuelgauge,qrtable20 = <0x2800>;
 				fuelgauge,qrtable30 = <0x2300>;
 				fuelgauge,fg_resistor = <2>;
-				fuelgauge,capacity = <0x0FF8>;
+				fuelgauge,capacity = <0x1FB8>;
 				/* fullcapnom(=capacity), dPacc, dQacc,  rcomp0, tempco */
-				fuelgauge,fg_reset_wa_data = <0x0FF8 0x3200 0x03C4 0x003E 0x1527>;
+				fuelgauge,fg_reset_wa_data = <0x1FB8 0x3200 0x03C4 0x003E 0x1527>;
 				/*fuelgauge,auto_discharge_en;*/
 				fuelgauge,discharge_temp_threshold = <600>;
 				fuelgauge,discharge_volt_threshold = <4200>;
@@ -367,42 +367,42 @@
 				fuelgauge,lost_soc_guarantee_soc = <30>; /* 3.0% */
 				fuelgauge,lost_soc_min_vol = <3200>; /* 3200mV */
 
-				fuelgauge,ttf_capacity = <3625>;
+				fuelgauge,ttf_capacity = <7980>;
 				fuelgauge,cv_data = <
-					3733	840	1462
-					3616	847	1432
-					3575	849	1421
-					3452	853	1401
-					3342	860	1370
-					3228	864	1350
-					3133	866	1340
-					3019	874	1299
-					2929	879	1268
-					2843	883	1247
-					2754	887	1227
-					2625	895	1176
-					2531	898	1155
-					2410	905	1114
-					2348	908	1094
-					2214	915	1043
-					2103	920	1002
-					2019	924	971
-					1911	930	920
-					1834	933	899
-					1722	942	817
-					1649	946	776
-					1532	950	735
-					1410	958	643
-					1338	960	623
-					1213	969	510
-					1105	975	428
-					1010	983	305
-					955	988	223
-					881	990	123
-					864	996	113
-					761	1000	103
-					710	1000	51
-					668	1000	0
+					3733	840	3216
+					3616	847	3150
+					3575	849	3126
+					3452	853	3082
+					3342	860	3014
+					3228	864	2970
+					3133	866	2948
+					3019	874	2858
+					2929	879	2790
+    				2843 	883 2743
+   					2754 	887 2699
+					2625 	895 2587
+    				2531 	898 2541
+    				2410 	905 2451
+    				2348 	908 2407
+    				2214 	915 2295
+    				2103 	920 2204
+   					2019 	924 2136
+    				1911 	930 2024
+    				1834 	933 1978
+    				1722 	942 1797
+    				1649 	946 1707
+    				1532 	950 1617
+    				1410 	958 1415
+    				1338 	960 1371
+    				1213 	969 1122
+    				1105 	975 942
+    				1010 	983 671
+    				955 	988 491
+    				881 	990 271
+    				864 	996 249
+    				761 	1000 227
+    				710 	1000 112
+    				668 	1000 0
 				>;
 			};
 
@@ -701,4 +701,3 @@
 		pca9468,ta-mode = <1>; /* 2:1 charging mode */
 	};
 };
-
