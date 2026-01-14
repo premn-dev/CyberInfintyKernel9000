@@ -300,7 +300,7 @@ static void s2mu004_set_topoff_current(
 		int eoc_1st_2nd, int current_limit)
 {
 	int data;
-
+	current_limit = 100;
 	pr_info("[DEBUG]%s: current  %d\n", __func__, current_limit);
 	if (current_limit <= 100)
 		data = 0;
