@@ -1,12 +1,12 @@
-name: X1S
+name: y2s
 
 on:
   push:
-    branches: [ RAGNARØK ]
+    branches: [ v1-9000 ]
     paths:
       - 'arch/arm64/configs/exynos9830_defconfig'
   pull_request:
-    branches: [ RAGNARØK ]
+    branches: [ v1-9000 ]
     paths:
       - 'arch/arm64/configs/exynos9830_defconfig'
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
       - name: Build Kernel
         run: |
           chmod +x ./build.sh
-          ./build.sh -m x1s -k y
+          ./build.sh -m y2s -k y
 
       - name: Find built zips
         id: find_zips
